@@ -11,8 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('produk', function (Blueprint $table) {
-            // Tambahkan kolom harga dan quantity
+        Schema::table('products', function (Blueprint $table) {
             $table->decimal('harga', 15, 2)->after('tgl_masuk');
             $table->integer('quantity')->after('harga');
         });
@@ -23,8 +22,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('produk', function (Blueprint $table) {
-            // Hapus kolom jika migrasi dibatalkan
+        Schema::table('products', function (Blueprint $table) {
             $table->dropColumn(['harga', 'quantity']);
         });
     }
